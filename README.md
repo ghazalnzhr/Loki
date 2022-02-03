@@ -22,7 +22,7 @@ you can find the demo video of this project [here](https://www.dropbox.com/s/kxk
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/ghazalnzhr/Loki.git
 ```
 
 > 1) Open the project in Arduino IDE
