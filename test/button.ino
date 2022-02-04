@@ -1,4 +1,6 @@
-// Motor x LCD I2C
+// Motor x LCD I2C x Button Counter x LED
+#define buttonPin 3
+
 
 #include <LiquidCrystal_I2C.h> // Library for LCD
 LiquidCrystal_I2C lcd = LiquidCrystal_I2C(0x3F, 16, 2);

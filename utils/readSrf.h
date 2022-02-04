@@ -1,20 +1,4 @@
-#define PIN_TRIG 3
-#define PIN_ECHO 4
-
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);
-
-void setup() {
-  Serial.begin(115200);
-
-  lcd.init();
-  lcd.backlight();
-
-  pinMode(PIN_TRIG, OUTPUT);
-  pinMode(PIN_ECHO, INPUT);
-}
-
-void loop() {
+void readSrf() {
   // Start a new measurement:
   digitalWrite(PIN_TRIG, LOW);
   delayMicroseconds(2);
