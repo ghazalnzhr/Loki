@@ -67,4 +67,8 @@ void motorTest() {
     for (int i = 0; i > -256; i--) {
         motor(i, i);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2fac59fe55fe1937078e17b6a83cf4b7fc0da392
