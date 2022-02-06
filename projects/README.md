@@ -26,7 +26,7 @@ You can find a video of this project [here]()
 
 Clone the project
 
-`git clone `
+```git clone https://github.com/ghazalnzhr/Loki.git```
 
 > 1. Open `withButton.ino` in `loki/projects` directory in Arduino IDE
 > 2. Plug in you Arduino Uno
