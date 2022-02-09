@@ -3,12 +3,6 @@
 // cm distance from the wall and takes a 180 degree turn
 // Then, goes back to exactly where it was before
 
-// TODO :
-// 1- Make the robot stop right in the 20 cm mark ++
-// 2- Make the robot turn in 20 cm mark ++
-// 3- Make the robot go back
-// 4- stop at origin
-
 // Motor conncetions
 #define in1 3
 #define in2 5
@@ -27,6 +21,8 @@ LiquidCrystal_I2C lcd(0x3F, 16, 2);
 float initialDistance;
 const float lengthOfRobot = 15.5;
 bool firstTime = true;
+unsigned long deltaTime = 0;
+unsigned long firstDelta = 0;
 
 void setup() {
   // Serial communication
@@ -53,19 +49,16 @@ void setup() {
 void loop() {
   float distance = readSrf();
   lcdDisplay(0, 1, distance);
-  if (distance > 20.0 && firstTime) {
-    Serial.println("going");
-    motor(80, 80);
-  } else if (distance >= initialDistance) {
+  if (millis() - deltaTime >= deltaTime && deltaTime != firstDelta) {
     // if it's already turned around and now is in its origin
     turnOffMotors();
-  } else {  // Turn backwards
-    motor(80, -80);
-    firstTime = false;
-    if (distance >= 20.0) {
-      // Now go to the front
-      motor(80, 80);
-    }
+  } else if (distance >= 20.0) {
+    // Now go to the front
+    motor(50, 60);
+  } else if (distance < 20.0) {  // Turn backwards
+    deltaTime = millis();
+    motor(60, -60);
+    delay(1800);
   }
 }
 
